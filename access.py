@@ -8,47 +8,32 @@ Author: PriyanshBordia,
 rollNo = '19ucs257'
 pwd = 'lnm$456a'
 
-import selenium
-import selenium.webdriver
+from time import sleep
+from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-
-webdriver = "/Users/priyansh/Desktop/GitHub/netaccess/venv/lib/python3.9/site-packages/selenium/webdriver/chrome/webdriver.py"
-options = "/Users/priyansh/Desktop/GitHub/netaccess/venv/lib/python3.9/site-packages/selenium/webdriver/chrome/options.py"
-service = "/Users/priyansh/Desktop/GitHub/netaccess/venv/lib/python3.9/site-packages/selenium/webdriver/chrome/service.py"
-
-import time
 from selenium.webdriver.chrome.service import Service
-service = Service(options)
+
+PATH = "/Users/priyansh/Desktop/GitHub/netaccess/chromedriver"
+
+service = Service(PATH)
 service.start()
 driver = webdriver.Remote(service.service_url)
-driver.get('http://www.google.com/');
-time.sleep(5) # Let the user actually see something!
-driver.quit()
+driver.get("https://172.22.2.6/connect/PortalMain")
 
-"""
-chrome_options = Options()
-# chrome_options.add_argument("--headless") #Remove this to see the process
-driver = selenium.webdriver.Chrome(options=chrome_options)
+try:
+	username_box = driver.find_element(By.ID, 'LoginUserPassword_auth_username')
+	username_box.send_keys(rollNo)
 
-driver.get('http://172.2.2.6/connect')
+	pwd_box = driver.find_element(By.ID, 'LoginUserPassword_auth_password')
+	pwd_box.send_keys(pwd)
 
-rollNo_box = driver.find_element(By.ID, 'username')
-rollNo_box.send_keys(rollNo)
+	login_button = driver.find_element(By.ID, 'UserCheck_Login_Button')
+	login_button.click()
 
-pwd_box = driver.find_element(By.ID, 'password')
-pwd_box.send_keys(pwd)
-
-login_button = driver.find_element(By.ID, 'submit')
-login_button.click()
-
-driver.get('http://172.2.2.6/connect')
-
-oneDay = driver.find_element(By.ID, 'radios-1')
-oneDay.click()
-
-approve_button = driver.find_element(By.ID, 'approveBtn')
-approve_button.click()
-
-#print("Successfully authenticated")
-"""
+	print("Successfully authenticated.!!")
+except Exception as e:
+	raise e
+finally:
+	sleep(20)
+	driver.quit()

@@ -16,7 +16,7 @@ from termcolor import cprint
 rollNo = os.getenv('LNM_USERNAME')
 pwd = os.getenv('LNM_PASSWORD')
 
-PATH = "/Users/priyansh/Desktop/GitHub/netaccess/src/lnmiit-netaccess/chromedriver"
+PATH = "/Users/priyansh/Desktop/GitHub/netaccess/src/chromedriver"
 
 service = Service(PATH)
 service.start()
@@ -28,7 +28,7 @@ try:
 	security_check.click()
 	security_check = driver.find_element(By.ID, 'proceed-link')
 	security_check.click()
-	sleep(.1)
+	sleep(1)
 	username_box = driver.find_element(By.ID, 'LoginUserPassword_auth_username')
 	username_box.send_keys(rollNo)
 	pwd_box = driver.find_element(By.ID, 'LoginUserPassword_auth_password')

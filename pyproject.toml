@@ -1,0 +1,3 @@
+[build-system]
+requires=["selenium"]
+build-backend = "setuptools.build_meta"

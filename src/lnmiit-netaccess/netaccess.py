@@ -36,6 +36,7 @@ try:
 	login_button = driver.find_element(By.ID, 'UserCheck_Login_Button_span')
 	login_button.click()
 	cprint("Successfully authenticated.!!", "white")
+	sleep(5)
 except Exception as e:
 	raise e
 finally:

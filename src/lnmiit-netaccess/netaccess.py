@@ -21,7 +21,7 @@ PATH = "/Users/priyansh/Desktop/GitHub/netaccess/src/chromedriver"
 service = Service(PATH)
 service.start()
 driver = webdriver.Remote(service.service_url)
-driver.get("https://172.22.2.6/connect/PortalMain")
+driver.get("https://172.22.2.6/connect/")
 
 try:
 	security_check = driver.find_element(By.ID, 'details-button')

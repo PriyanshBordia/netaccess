@@ -18,7 +18,7 @@ packaging==21.3
 pep517==0.12.0
 pkginfo==1.8.2
 pycparser==2.21
-Pygments==2.11.2
+Pygments==2.15.0
 pyOpenSSL==22.0.0
 pyparsing==3.0.7
 PySocks==1.7.1

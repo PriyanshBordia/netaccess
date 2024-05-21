@@ -23,7 +23,7 @@ pyOpenSSL==22.0.0
 pyparsing==3.0.7
 PySocks==1.7.1
 readme-renderer==34.0
-requests==2.31.0
+requests==2.32.0
 requests-toolbelt==0.9.1
 rfc3986==2.0.0
 selenium==4.1.3
